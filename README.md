@@ -1,2 +1,2 @@
-# resume
-A running history of my resume (Apr 2020 onwardss)
+# Resume
+Resume based on AltaCV template (https://github.com/liantze/AltaCV).

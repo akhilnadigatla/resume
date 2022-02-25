@@ -1,0 +1,268 @@
+%% If you need to pass whatever options to xcolor
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+%% If you are using \orcid or academicons
+%% icons, make sure you have the academicons
+%% option here, and compile with XeLaTeX
+%% or LuaLaTeX.
+% \documentclass[10pt,a4paper,academicons]{altacv}
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+
+%% AltaCV uses the fontawesome5 and academicons fonts
+%% and packages.
+%% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/academicons for full list of symbols. You MUST compile with XeLaTeX or LuaLaTeX if you want to use academicons.
+
+% Change the page layout if you need to
+\geometry{left=0.75cm, right=0.75cm, top=0.8cm, bottom=0.6cm, columnsep=0.55cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+\usepackage[dvipsnames]{xcolor}
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+\ifxetexorluatex
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  % \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% Change the colours if you want to
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\definecolor{DarkPastelRed}{HTML}{450808}
+\definecolor{PastelRed}{HTML}{8F0D0D}
+\definecolor{GoldenEarth}{HTML}{E7D192}
+\colorlet{name}{black}
+\colorlet{tagline}{PastelRed}
+\colorlet{heading}{DarkPastelRed}
+\colorlet{headingrule}{GoldenEarth}
+\colorlet{subheading}{PastelRed}
+\colorlet{accent}{PastelRed}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+%% sample.bib contains your publications
+\addbibresource{sample.bib}
+
+\begin{document}
+\name{Akhil Nadigatla}
+% \tagline{Your Position or Tagline Here}
+%% You can add multiple photos on the left or right
+% \photoR{2.8cm}{Globe_High}
+% \photoL{2.5cm}{Yacht_High,Suitcase_High}
+
+\personalinfo{%
+  % Not all of these are required!
+  \href{mailto:akhilnadigatla@cmu.edu}{\email{akhilnadigatla@cmu.edu}}
+  \phone{412-482-8967}
+  % \mailaddress{Åddrésş, Street, 00000 Cóuntry}
+  % \location{Pittsburgh, PA}
+  \href{https://akhilnadigatla.com/}{\homepage{akhilnadigatla.com}}
+  % \twitter{@twitterhandle}
+  \href{linkedin.com/in/akhil-nadigatla/}{\linkedin{akhil-nadigatla}}
+  \href{https://github.com/akhilnadigatla}{\github{akhilnadigatla}}
+  %% You MUST add the academicons option to \documentclass, then compile with LuaLaTeX or XeLaTeX, if you want to use \orcid or other academicons commands.
+  % \orcid{0000-0000-0000-0000}
+  %% You can add your own arbtrary detail with
+  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+  % \printinfo{\faPaw}{Hey ho!}[https://example.com/]
+  %% Or you can declare your own field with
+  %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+  \NewInfoField{gitlab}{\faPhone}[https://gitlab.com/]
+}
+
+\makecvheader
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+% \AtBeginEnvironment{itemize}{\small}
+
+%% Set the left/right column width ratio to 6:4.
+\columnratio{0.63}
+
+% Start a 2-column paracol. Both the left and right columns will automatically
+% break across pages if things get too long.
+\begin{paracol}{2}
+
+\cvsection{Work Experience}
+
+\cvevent{Software Engineer Intern | {\small Java, AWS, GCP}}{Splunk}{June 2021 - August 2021}{San Jose, CA}
+\begin{itemize}
+\item Worked on Observability Cloud Analytics team to improve real-time streaming capacities and efficiency of platform that drives all metric transformations processed by SignalFx product.
+\item Developed novel workflow for large window, fine resolution tasks that increased capacity by \textasciitilde3,500\% and cut job migration and restart times by \textasciitilde700\% by offshoring window data to external persistence.
+\end{itemize}
+
+\vspace{-5pt}
+\divider
+\vspace{-5pt}
+
+\cvevent{Web Development and Support Lead | {\small JavaScript, AWS}}{CS Academy}{May 2019 - December 2019}{Pittsburgh, PA}
+\begin{itemize}
+\item Drove content creation, testing, and development of free platform for learning computer science principles. Led development of features that improved ease-of-use, achieving a five-fold increase in active users.
+\end{itemize}
+
+\cvsection{Research}
+
+\cvevent{{\href{}{Towards Efficient Neural Zeroth-Order Optimization Algorithms}}}{CMU Machine Learning Department}{August 2021 - present}{Pittsburgh, PA}
+\begin{itemize}
+    \item Advised by \href{http://www.cs.cmu.edu/~pradeepr/}{\textcolor{Mahogany}{Prof. Ravikumar}} for honors senior thesis program, investigating more efficient derivative-free optimization techniques in high-dimensional settings without any assumptions about the underlying objective function.
+\end{itemize}
+
+\vspace{-5pt}
+\divider
+\vspace{-5pt}
+
+\cvevent{{\href{https://akhilnadigatla.com/assets/docs/15400-final-report.pdf}{Adversarial Robustness via Model Ensembles}}}{CMU Machine Learning Department}{October 2020 - May 2021}{Pittsburgh, PA}
+\begin{itemize}
+    \item Under the mentorship of \href{http://www.cs.cmu.edu/~pradeepr/}{\textcolor{Mahogany}{Prof. Ravikumar}}, evaluated effects of weighted ensembles of classifiers on adversarial robustness of deep neural networks.
+    \item Witnessed a 1 to 2\% (statistically significant) improvement in accuracy on perturbed samples from MNIST and CIFAR-10 datasets.
+\end{itemize}
+
+\cvsection{Selected Projects}
+
+\cvevent{SafeEvents | {\small Python, Firebase}}{}{August 2020 - November 2020}{}
+\begin{itemize}
+\item Developed mobile event tracking application providing COVID-19 risk estimates by locality using active data from Georgia Tech project.
+\item Used at Univ. of Minnesota - Twin Cities and UT - Austin.
+\end{itemize}
+
+\vspace{-5pt}
+\divider
+\vspace{-5pt}
+
+\cvevent{Dendrogram Generator | {\small R}}{}{June 2020 - August 2020}{Nairobi, Kenya}
+\begin{itemize}
+\item Created pipeline to convert DNA marker information for different crop varieties into dendrograms to aid in trait association, all wrapped in a GUI.
+\item Currently in use at International Institute for Tropical Agriculture.
+\end{itemize}
+
+\vspace{-5pt}
+\divider
+\vspace{-5pt}
+
+\cvevent{ConvoCoach | {\small Python, GCP}}{}{March 2019 - June 2019}{}
+\begin{itemize}
+\item Developed application, along with four colleagues, to assist and improve the capabilities of autistic individuals with daily conversations.
+\item Utilized cloud NLP, image association, speech recognition and synthesis tools to drive predictive, dynamic conversations.
+\end{itemize}
+
+\medskip
+
+% use ONLY \newpage if you want to force a page break for
+% ONLY the current column
+
+%% Switch to the right column. This will now automatically move to the second
+%% page if the content is too long.
+\switchcolumn
+
+\cvsection{Education}
+
+\cvevent{B.Sc.\ in Computer Science}{Carnegie Mellon University}{August 2018 - May 2022 (expected)}{}
+GPA: 3.48 \\
+Major: Computer Science \\
+Minors: Machine Learning, Philosophy
+
+\cvsection{Coursework}
+
+\begin{itemize}
+\item Distributed Systems (15-440)
+\item Algorithm Design and Analysis (15-451)
+\item Machine Learning (10-315)
+\item Software Engineering (17-313)
+\item Programming Languages (15-312)
+\item Parallel Data Structures \& Algos (15-210)
+\item Computer Systems (15-213)
+\item Theoretical CS (15-251)
+\end{itemize}
+
+\cvsection{Teaching}
+
+\begin{itemize}
+\item Research and Innovation in CS (15-300)
+\end{itemize}
+
+\cvsection{Skills}
+
+\cvtag{Python}
+\cvtag{C}
+\cvtag{C++}
+\cvtag{Java}
+\cvtag{SML} \\
+\cvtag{JavaScript/TypeScript}
+
+\divider
+
+\cvtag{PyTorch}
+\cvtag{Tensorflow}
+\cvtag{JAX}
+\cvtag{Spark}
+\cvtag{React}
+\cvtag{MongoDB}
+\cvtag{Git}
+\cvtag{\LaTeX}
+
+\divider
+
+\cvtag{AWS}
+\cvtag{GCP}
+\cvtag{Docker}
+\cvtag{CI/CD}
+\cvtag{Agile}
+
+%% Yeah I didn't spend too much time making all the
+%% spacing consistent... sorry. Use \smallskip, \medskip,
+%% \bigskip, \vpsace etc to make adjustments.
+
+\cvsection{Achievements}
+
+\cvachievement{\faTrophy}{Putnam Math Competition}{Top 500 (out of \textasciitilde4000)}
+
+\divider
+
+\cvachievement{\faTrophy}{CMU SCS Dean's List}{High Honors (F'20, F'21)}
+
+\divider
+
+\cvachievement{\faTrophy}{TartanHacks}{Best Social Welfare Hack}
+
+\divider
+
+\cvachievement{\faTrophy}{President's Award of Kenya}{Gold Standard (by H.E. Uhuru Kenyatta)}
+
+\cvsection{Activities}
+
+\begin{itemize}
+\item \textbf{Atlas Autonomous Buggy} | Software Team \\ \smallskip
+\textit{September 2019 - May 2020}
+
+\item \textbf{Business Technology Club} \\ \smallskip
+\textit{January 2019 - May 2019}
+
+\item \textbf{South Asian SA} | Student Representative \\ \smallskip
+\textit{September 2018 - May 2019}
+\end{itemize}
+
+\end{paracol}
+
+\end{document}
